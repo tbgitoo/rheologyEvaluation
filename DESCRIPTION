@@ -1,0 +1,10 @@
+Package: rheologyEvaluation
+Type: Package
+Title: rheologyEvaluation
+Version: 1.0
+Date: 2018-10-17
+Author: Thomas Braschler
+Maintainer: Thomas Braschler <thomas.braschler@gmail.com>
+Description: Utility function to read and analyze Haake Rheowin text files
+License: GPL-3 | file LICENCE
+LazyLoad: yes
