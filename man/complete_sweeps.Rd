@@ -24,11 +24,27 @@ x-values is assumed, and extrapolation is from the value at the minimum x-value 
 \value{
 A \link{data.frame} with the same columns as \code{theSweeps} but potentially more lines if it was necessary to complete the dataframe to have entries for all the x-values for all the sweeps.}
 
-
+\Details{This function anticipates typical rheology plots where the G'/G'' values either vary slowly on a logarithmic scale or show constant slopes in the extreme regions. This is why the interpolation is linear in the log-log plot. Use this function cautiously when the curves are following the general same trend but values at all available x-coordinates for all curves are required but not available through measurement. An example plots using some measured rather than imposed quantity on the x-axis, making it impossible to predict the actual x-values before measurement.}
 
 \author{
 Thomas Braschler
 }
+
+\examples{
+theSweeps=data.frame(file=c(rep("A.txt",7),rep("B.txt",4),rep("C.txt",10)),tau_Pa=c(1,2,4,10,20,40,100,1,10,100,1000,0.1,0.4,1,4,10,40,100,200,400,1000),Gprime_Pa=c(1000,900,950,900,800,400,100,800,900,30,8,1200,1000,1100,800,700,300,200,50,40,5))
+theSweepsCompleted = complete_sweeps(theSweeps,abscissa="tau_Pa",sweep_identifier_column="file",columns_to_complete=c("Gprime_Pa"),scale_with_abscissa=c(),main="complete_sweeps")
+plot(Gprime_Pa ~ tau_Pa, theSweepsCompleted[theSweepsCompleted$file=="A.txt",],log="xy",type="b")
+lines(Gprime_Pa ~ tau_Pa, theSweepsCompleted[theSweepsCompleted$file=="B.txt",],type="b",col="red")
+lines(Gprime_Pa ~ tau_Pa, theSweepsCompleted[theSweepsCompleted$file=="C.txt",],type="b",col="green")
+lines(Gprime_Pa ~ tau_Pa, theSweeps[theSweeps$file=="A.txt",],type="p",col="black",pch=21,bg="black")
+lines(Gprime_Pa ~ tau_Pa, theSweeps[theSweeps$file=="B.txt",],type="p",col="red",pch=21,bg="red")
+lines(Gprime_Pa ~ tau_Pa, theSweeps[theSweeps$file=="C.txt",],type="p",col="green",pch=21,bg="green")
+legend("bottomleft",legend=c("A.txt","B.txt","C.txt", "Full symbols original data, empty interpolated"),pch=c(21,21,21,-1),col=c("black","red","green"))
+
+
+
+}
+
 
 \keyword{ misc }
 
