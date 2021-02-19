@@ -6,7 +6,7 @@
 rheologyEvaluation
 }
 \description{
-Utility functions to read text output files from the simulation library rheologyEvaluation (Python)
+Some utility functions for reading and analyzing rheology files from Rheowin
 }
 \details{
 \tabular{ll}{
