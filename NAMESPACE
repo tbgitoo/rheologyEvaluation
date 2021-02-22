@@ -1,1 +1,1 @@
-export("evaluateYield","complete_sweeps")
+export("evaluateYield","complete_sweeps","read_Haake_Rheowin_text_file")

@@ -17,14 +17,14 @@ Rheological sweeps in R \link{data.frame} format, that is concatened in a long t
 }
 \item{abscissa}{x-values; this is often, but not necessarily, the controlled parameter during the sweep, as for example the shear stress "tau_Pa".}
 \item{columns_to_complete}{List of columns which should be interpolated so that for all individual sweeps, values at the entire collection of x-values are available.}
-\items{scale_with_abscissa}{For extrapolation at low x-values (i.e. below the minimum value of the sweep at hand): for columns listed in \code{scale_with_abscissa}, proportionality with the 
+\item{scale_with_abscissa}{For extrapolation at low x-values (i.e. below the minimum value of the sweep at hand): for columns listed in \code{scale_with_abscissa}, proportionality with the 
 x-values is assumed, and extrapolation is from the value at the minimum x-value for the sweep concerned by proportionality with the x-values. Use this only if you are sure from a priori knowledge that proportionality to the abscissa value is better than linear extrapolation in estimation of the missing y-values.}
 }
 
 \value{
 A \link{data.frame} with the same columns as \code{theSweeps} but potentially more lines if it was necessary to complete the dataframe to have entries for all the x-values for all the sweeps.}
 
-\Details{This function anticipates typical rheology plots where the G'/G'' values either vary slowly on a logarithmic scale or show constant slopes in the extreme regions. This is why the interpolation is linear in the log-log plot. Use this function cautiously when the curves are following the general same trend but values at all available x-coordinates for all curves are required but not available through measurement. An example plots using some measured rather than imposed quantity on the x-axis, making it impossible to predict the actual x-values before measurement.}
+\details{This function anticipates typical rheology plots where the G'/G'' values either vary slowly on a logarithmic scale or show constant slopes in the extreme regions. This is why the interpolation is linear in the log-log plot. Use this function cautiously when the curves are following the general same trend but values at all available x-coordinates for all curves are required but not available through measurement. An example plots using some measured rather than imposed quantity on the x-axis, making it impossible to predict the actual x-values before measurement.}
 
 \author{
 Thomas Braschler
