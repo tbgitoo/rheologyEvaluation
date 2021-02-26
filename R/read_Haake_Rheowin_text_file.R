@@ -53,7 +53,7 @@ read_Haake_Rheowin_text_file<-function(file,use_C_locale=TRUE,colname_info=
 	# Sometimes, individual files need different treatment (separation character different, try once again with standard ("\t")
 	 if(dim(current_data)[2]==1 & args[["sep"]] != "\t")
     	{
-		args[["sep"]] = "\t"x
+		args[["sep"]] = "\t"
 		current_data=do.call(read.table, args)
         
     	}
