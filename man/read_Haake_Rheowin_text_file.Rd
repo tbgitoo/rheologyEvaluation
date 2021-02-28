@@ -39,5 +39,24 @@ A dataframe with names identical to the names of the \code{colname_info} argumen
 Thomas Braschler
 }
 
+\examples{
+# Access path for reading the sample file
+path=system.file("sampleData",package="rheologyEvaluation")
+file="Restylane_syringe_1.txt"
+colname_info=
+	list("tau_Pa"=c("Tau.en.Pa","X..en.Pa"),
+	"Gprimeprime_Pa"=c("G..en.Pa"),
+	"Gprime_Pa"=c("X.G...en.Pa.","G..en.Pa.1"),
+	"Phase_angle_degrees"=c("X..en...1","Da.en.."),
+	"Gamma_in_percent"=c("X..en..","Ga.en.."),
+	"f_Hz"=c("f.en.Hz"),
+	"t_s"=c("t.en.s"),
+	"t_seg_s"="t_seg.en.s")
+rheo_Data=read_Haake_Rheowin_text_file(file=paste(path,file,sep="/"),colname_info=colname_info,header=TRUE,skip=6,sep=c(";"),comment.char="",blank.lines.skip=FALSE,quote="")
+plot(Gprime_Pa ~tau_Pa, rheo_Data,log="xy")
+
+
+}
+
 \keyword{ misc }
 
