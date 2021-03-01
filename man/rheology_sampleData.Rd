@@ -41,10 +41,5 @@ plot(Gprime_Pa ~ tau_Pa, rheology_sampleData,log="xy",type="b",main="rheology_sa
 lines(Gprimeprime_Pa ~ tau_Pa, rheology_sampleData,type="l")
 legend("bottomleft",legend=c("Elastic modulus G'","Viscous modulus G''"),lty=c(-1,1),pch=c(21,-1))
 
-
-
-
-
-
 }
 \keyword{datasets}
