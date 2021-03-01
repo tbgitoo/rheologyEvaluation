@@ -4,6 +4,7 @@ R package for reading and elementary analysis of Rheowin text files (exported fr
 This package can be installed automatically via:
 
 library(devtools)
+
 install_github("tbgitoo/rheologyEvaluation")
 
 
