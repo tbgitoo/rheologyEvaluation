@@ -37,5 +37,30 @@ A vector of two entries describing the strain and stress of the yield point}
 Thomas Braschler
 }
 
+\examples{
+
+# Loading and plotting of the data
+data(rheology_sampleData)
+# Evaluation in linear scale
+yieldPointLinear=evaluateYield(rheology_sampleData,Gprime_column="Gprime_Pa",Gprimeprime_column="Gprimeprime_Pa",abscissa="tau_Pa")
+yieldPointLinear
+
+#Evaluation in log scale
+rheology_sampleData$log_Gprime_Pa = log(rheology_sampleData$Gprime_Pa) 
+rheology_sampleData$log_Gprimeprime_Pa = log(rheology_sampleData$Gprimeprime_Pa)
+rheology_sampleData$log_tau_Pa = log(rheology_sampleData$tau_Pa)
+ 
+yieldPointLog=evaluateYield(rheology_sampleData,Gprime_column="log_Gprime_Pa",Gprimeprime_column="log_Gprimeprime_Pa",abscissa="log_tau_Pa")
+yieldPointLog["Gprime_Pa"] = exp(yieldPointLog["log_Gprime_Pa"])
+yieldPointLog["tau_Pa"] = exp(yieldPointLog["log_tau_Pa"])
+
+#In log scale, the yield point is the intersection on the log-log G'-shear plot
+plot(Gprime_Pa ~ tau_Pa, rheology_sampleData,log="xy",type="b",main="rheology_sampleData")
+lines(Gprimeprime_Pa ~ tau_Pa, rheology_sampleData,type="l")
+lines(yieldPointLog["tau_Pa"],yieldPointLog["Gprime_Pa"],type="p",pch=21,cex=1.5,col="red",bg="red")
+legend("bottomleft",legend=c("Elastic modulus G'","Viscous modulus G''", "Yield point"),lty=c(-1,1,-1),pch=c(21,-1,21),pt.cex=c(1,1,1.5),col=c("black","black","red"), pt.bg=c("white","white","red"))
+
+}
+
 \keyword{ misc }
 
