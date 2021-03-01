@@ -5,10 +5,12 @@
 evaluateYield
 }
 \description{
-Evaluates the yield point (stress and strain) from oscillatory rheology sweeps (stress or strain sweep)
+Evaluates the yield point (stress and strain) from oscillatory rheology sweeps (stress or strain sweep). This is done by finding the intersection point between the G' and G'' curves, 
+based on the predominantly solid nature when G'>G'' and inversely predominantly liquid nature when G'<G'' (Schramm, G. A, 1994)
 }
 \usage{
-evaluateYield(sweep,Gprime_column="Gprime_Pa",Gprimeprime_column="Gprimeprime_Pa",abscissa="tau_Pa")
+evaluateYield(sweep, Gprime_column = "Gprime_Pa", Gprimeprime_column = "Gprimeprime_Pa", 
+    abscissa = "tau_Pa", additional_columns_to_be_interpolated = "Gamma_in_percent")
 }
 
 \arguments{
@@ -29,7 +31,7 @@ create the oscillatory sweep
 }
 
 \value{
-A vector of two entries describing the strain and stress of the yield point}
+A vector of two entries describing the strain and stress of the yield point, and additional characteristics when \code{additional_columns_to_be_interpolated} is not empty.}
 
 
 
@@ -61,6 +63,9 @@ lines(yieldPointLog["tau_Pa"],yieldPointLog["Gprime_Pa"],type="p",pch=21,cex=1.5
 legend("bottomleft",legend=c("Elastic modulus G'","Viscous modulus G''", "Yield point"),lty=c(-1,1,-1),pch=c(21,-1,21),pt.cex=c(1,1,1.5),col=c("black","black","red"), pt.bg=c("white","white","red"))
 
 }
+
+\references{
+Schramm, G. A Practical Approach to Rheology and Rheometry. (Gebrueder HAAKE GmbH, 1994).}
 
 \keyword{ misc }
 

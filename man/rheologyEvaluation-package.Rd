@@ -1,4 +1,4 @@
-\name{rheologyEvaluation-package}
+	\name{rheologyEvaluation-package}
 \alias{rheologyEvaluation-package}
 \alias{plot.counts}
 \docType{package}
