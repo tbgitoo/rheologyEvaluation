@@ -13,6 +13,7 @@ Sample rheological stress sweep, obtained on a commercial sample of Restylane Li
   \describe{
     \item{\code{rheology_sampleData}}{\link{data.frame} with 8 columns: \code{tau_Pa} indicates the shear stress, \code{Gprimeprime_Pa} the viscous modulus G'', \code{Gprime_Pa} the elastic modulus G', \code{Phase_angle_degrees} the phase angle determined by G' and G'', \code{Gamma_in_percent} the shear deformation in percent, \code{f_Hz} the excitation frequency in Hz, \code{t_s} the time from the beginning of the experiment, and \code{t_seg_s} the time in the current acquisition segment.}
     }
+    }
 
 \examples{
 
@@ -39,21 +40,8 @@ load(rheology_sampleData)
 
 
 
-}
 
-# ===========================================================
-# Loading of the data and elementary plotting
-data(rheology_sampleData)
-plot(rheology_sampleData[[1]]$Distance, rheology_sampleData[[1]]$pressure/1e3,type="l",xlab="Distance [mm]",ylab="Pressure [kPa]",xlim=c(0,3),ylim=c(0,10))
 
-for(ind in 2:length(rheology_sampleData))
-{
-lines(rheology_sampleData[[ind]]$Distance, rheology_sampleData[[ind]]$pressure/1e3,type="l",col=palette()[ind])
-}
-
-lines(CMC_concentration_blank$Distance,CMC_concentration_blank$pressure/1e3,type="l",col=palette()[length(rheology_sampleData)+1])
-
-legend("topleft",legend=c(paste("c(CMC) = ",round(CMC_concentration_file_info$CMC_conc*100)/10, " mg/mL",sep=""),"blank (no gel)"),lty=rep(1,length(rheology_sampleData)+1),col=palette()[1:(length(rheology_sampleData)+1)])
 
 }
 \keyword{datasets}
