@@ -52,8 +52,8 @@ colname_info=
 	"f_Hz"=c("f.en.Hz"),
 	"t_s"=c("t.en.s"),
 	"t_seg_s"="t_seg.en.s")
-rheo_Data=read_Haake_Rheowin_text_file(file=paste(path,file,sep="/"),colname_info=colname_info,header=TRUE,skip=6,sep=c(";"),comment.char="",blank.lines.skip=FALSE,quote="")
-plot(Gprime_Pa ~tau_Pa, rheo_Data,log="xy")
+rheology_sampleData=read_Haake_Rheowin_text_file(file=paste(path,file,sep="/"),colname_info=colname_info,header=TRUE,skip=6,sep=c(";"),comment.char="",blank.lines.skip=FALSE,quote="")
+plot(Gprime_Pa ~tau_Pa, rheology_sampleData,log="xy") # At the beginning, there is a pre-conditioning step, this has little influence on the general curve
 
 
 }
