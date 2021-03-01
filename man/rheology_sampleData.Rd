@@ -31,12 +31,14 @@ colname_info=
 	"t_seg_s"="t_seg.en.s")
 rheology_sampleData=read_Haake_Rheowin_text_file(file=paste(path,file,sep="/"),colname_info=colname_info,header=TRUE,skip=6,sep=c(";"),comment.char="",blank.lines.skip=FALSE,quote="")
 
-# There is a preconditioning step consisting in ramping up and down the applied shear stress in this sample, remove to obtain a single sweep curve. This is the first 12 points
-rheology_sampleData=rheology_sampleData[13:length(rheology_sampleData$tau_Pa),]
+# There is a preconditioning step consisting in ramping up and down and up the applied shear stress in this sample, remove to obtain a single sweep curve. This is the first 18 points
+rheology_sampleData=rheology_sampleData[19:length(rheology_sampleData$tau_Pa),]
 
 
 # Loading and plotting of the data
-load(rheology_sampleData)
+data(rheology_sampleData)
+plot(Gprime_Pa ~ tau_Pa, rheology_sampleData,log="xy")
+lines(Gprimeprime_Pa ~ tau_Pa, rheology_sampleData,type="l")
 
 
 
