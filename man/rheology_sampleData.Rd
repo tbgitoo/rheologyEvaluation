@@ -37,8 +37,9 @@ rheology_sampleData=rheology_sampleData[19:length(rheology_sampleData$tau_Pa),]
 
 # Loading and plotting of the data
 data(rheology_sampleData)
-plot(Gprime_Pa ~ tau_Pa, rheology_sampleData,log="xy")
+plot(Gprime_Pa ~ tau_Pa, rheology_sampleData,log="xy",type="b",main="rheology_sampleData")
 lines(Gprimeprime_Pa ~ tau_Pa, rheology_sampleData,type="l")
+legend("bottomleft",legend=c("Elastic modulus G'","Viscous modulus G''"),lty=c(-1,1),pch=c(21,-1))
 
 
 
