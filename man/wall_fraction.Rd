@@ -38,3 +38,11 @@ see also Supplementary 8 of the manuscript "An injectable meta-biomaterial", par
 
 \keyword{ misc }
 
+\examples{
+conc=0:200
+uncompressed_wall_concentration=70 # uncompressed wall concentration spontaneously adapted when the polymer particles are not under force
+plot(conc,wall_fraction(conc,wall_concentration=uncompressed_wall_concentration),xlab="Total polymer concentration [mg/mL]",ylab="Space fraction occupied by solid material",main="Theoretical wall fraction estimation")
+lines(c(0,200),c(0,200)/uncompressed_wall_concentration,type="l",col="red")
+legend("bottomright",legend=c("Pellet & Cloitre","uncompressed wall material"),lty=c(1,1),pch=c(1,-1),col=c("black","red"))
+}
+

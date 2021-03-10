@@ -40,3 +40,10 @@ Thomas Braschler
 
 \keyword{ misc }
 
+\examples{
+x=seq(from=0,to=50,length.out=200)
+logGprimeModel = logpolynomial_model(x,1,20,3,penalty_factor_below_offset=NA)
+plot(x,exp(logGprimeModel),type="b",xlab="Polymer concentration",log="y",ylab="Model G' value")
+}
+
+

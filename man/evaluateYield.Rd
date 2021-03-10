@@ -28,6 +28,10 @@ Name of the column containing the abscissa of the sweep (the variable that was s
 create the oscillatory sweep
 }
 
+ \item{additional_columns_to_be_interpolated}{
+Name of additional columns that should be interpolated to find its value at the yield point. The interpolation will be done to exactly the place as for the \code{Gprime_column} column (respectively \code{Gprimeprime_column} column, at the yield point they are by definition equal), that is using the same weights between the last solid and first liquid measurement point.
+}
+
 }
 
 \value{

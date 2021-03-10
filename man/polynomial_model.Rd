@@ -39,3 +39,9 @@ Thomas Braschler
 
 \keyword{ misc }
 
+\examples{
+x=seq(from=0,to=50,length.out=200)
+GprimeModel = polynomial_model(x,1,20,3)
+plot(x,GprimeModel,type="b",xlab="Polymer concentration",log="y",ylab="Model G' value")
+}
+
