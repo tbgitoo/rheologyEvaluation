@@ -1,1 +1,1 @@
-export("evaluateYield","complete_sweeps","read_Haake_Rheowin_text_file")
+export("evaluateYield","complete_sweeps","read_Haake_Rheowin_text_file","fitPolynomialModelGprimeConcentration", "logpolynomial_model", "polynomial_model", "wall_fraction")
